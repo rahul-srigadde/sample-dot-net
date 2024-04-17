@@ -14,7 +14,7 @@ namespace sample_dot_net.Business.Logic
             license.SetLicense(@"Aspose.Total.NET.lic");
             try
             {
-                PdfFileInfo fi = new PdfFileInfo(inputStream);
+                PdfFileInfo fi = new PdfFileInfo(inputStream,"1234");
                 if (fi.IsPdfFile)
                 {
                     string userName = userfirstname + " " + userlastname;
@@ -22,8 +22,10 @@ namespace sample_dot_net.Business.Logic
                     inputStream.Position = 0;
 
                     PdfFileStamp stamper = new PdfFileStamp();
-                    stamper.BindPdf(inputStream);
-                    Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(inputStream);
+                    
+                    Aspose.Pdf.Document pdfDocument = new Aspose.Pdf.Document(inputStream,"1234");
+
+                    stamper.BindPdf(pdfDocument);
 
                     FormattedText tx = new FormattedText(strWatermark,
                         new FontColor(211, 211, 211),
