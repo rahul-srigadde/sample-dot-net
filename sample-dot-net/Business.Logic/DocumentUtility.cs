@@ -1,6 +1,8 @@
-﻿using System;
-using Aspose.Pdf;
+﻿using Aspose.Pdf;
 using Aspose.Pdf.Facades;
+using System;
+using System.IO;
+
 
 namespace sample_dot_net.Business.Logic
 {
@@ -14,7 +16,12 @@ namespace sample_dot_net.Business.Logic
             license.SetLicense(@"Aspose.Total.NET.lic");
             try
             {
-                PdfFileInfo fi = new PdfFileInfo(inputStream,"1234");
+             
+                PdfFileInfo fi = new PdfFileInfo(inputStream);
+
+                Aspose.Pdf.Document pdfDocument1 = new Aspose.Pdf.Document(inputStream, "1234");
+
+
                 if (fi.IsPdfFile)
                 {
                     string userName = userfirstname + " " + userlastname;
